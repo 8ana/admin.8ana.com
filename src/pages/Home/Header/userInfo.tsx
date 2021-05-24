@@ -37,7 +37,7 @@ export const UserInfo: FC = props => {
     <Popover placement="bottom" content={<PopContent source={UserData} onChange={onChange} />} trigger="hover">
       <div className={`${styles.list}`}>
         <Avatar size={30} icon={<UserOutlined />} src={userInfo?.avatar} />
-        <label>{userInfo?.name}</label>
+        <label>{userInfo?.username}</label>
       </div>
     </Popover>
   );

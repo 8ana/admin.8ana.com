@@ -12,11 +12,16 @@ export const Init: FC = () => {
   const actions = useAction('auth');
 
   const [state, onFinish] = useAsyncFn(async (values: AuthType.InitReq) => {
-    await actions.init({
+    const res = await actions.init({
       username: values.username,
-      email: values.email,
       password: md5(values.password),
+      email: values.email,
+      isAdmin: 1,
     });
+
+    if (res) {
+      window.location.reload();
+    }
     message.success(getLang('auth.init.success'));
   });
   return (

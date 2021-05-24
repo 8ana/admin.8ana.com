@@ -2,8 +2,9 @@ export type InitialState = Record<string, unknown>;
 
 export type InitReq = {
   username: string;
-  email: string;
   password: string;
+  email?: string;
+  isAdmin?: number;
 };
 
 export type LoginReq = Omit<InitReq, 'email'>;
@@ -14,11 +15,7 @@ export type LoginRes = {
 
 export type UserInfoData = {
   avatar: string;
-  background: string;
-  email: string;
   id: string;
-  introduce: string;
-  level: number;
-  name: string;
-  score: number;
+  admin: number;
+  username: string;
 };
